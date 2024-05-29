@@ -14,7 +14,7 @@ function getWeather(){
         .then(response => response.json())
         .then(json => {
             if (json.cod === 200) {
-                const temp = json.main.temp;
+                const temp = Math.round(json.main.temp, 2);
                 const desc = json.weather[0].description;
                 document.querySelector('.temp').textContent = `Temperature: ${temp}°C`;
                 document.querySelector('.desc').textContent = `Description: ${desc}`;
